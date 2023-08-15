@@ -1,11 +1,25 @@
+export type TurboPagesOptions = {
+  tracing?: boolean;
+};
+
 class Turbopages {
-  constructor() {
-    console.log("Starting Turbopages");
+  private _tracing = false;
+
+  constructor({ tracing = false }: TurboPagesOptions = {}) {
+    this._tracing = tracing;
+
     this.setup();
+  }
+
+  _trace(...args: any[]) {
+    if (this._tracing) {
+      console.log("Turbo 🚀 ::", ...args);
+    }
   }
 
   setup() {
     document.addEventListener("click", (e) => this.handleLinkClick(e));
+    this._trace("Started");
   }
 
   handleLinkClick(e: MouseEvent) {
@@ -14,12 +28,16 @@ class Turbopages {
       // ignore external links
       if (e.target.target === "_blank") return;
 
+      // ignore links with data-turbo="false"
+      if (e.target.dataset.turbo === "false") return;
+
       e.preventDefault();
       this.loadPage(e.target.href);
     }
   }
 
   loadPage(url: string) {
+    this._trace("Loading page", url);
     // Download HTML from url
     fetch(url)
       .then((response) => response.text())

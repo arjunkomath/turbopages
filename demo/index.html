@@ -1,19 +1,24 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script defer type="module">
-    import Turbopages from '/turbopages.js';
-    const turbo = new Turbopages();
-  </script>
-</head>
-<body>
-  <h1>
-    Hello world!
-  </h1>
-
-  <a href="/contact">Contact</a>
-  <a href="/about">About</a>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer type="module">
+      import Turbopages from "/turbopages.js";
+      const turbo = new Turbopages({ tracing: true });
+    </script>
+  </head>
+  <body>
+    <h1>Hello 👋</h1>
+    <ul>
+      <li><a data-turbo="false" href="/about">About (without Turbo)</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a target="_blank" href="https://x.com/arjunz">Find me on X</a></li>
+      <li>
+        <a target="_blank" href="https://github.com/arjunkomath"
+          >Find me on GitHub</a
+        >
+      </li>
+    </ul>
+  </body>
 </html>
