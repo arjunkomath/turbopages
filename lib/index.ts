@@ -17,6 +17,12 @@ class Turbopages {
     }
   }
 
+  _traceError(...args: any[]) {
+    if (this._tracing) {
+      console.error("Turbo 🚀 ::", ...args);
+    }
+  }
+
   setup() {
     document.addEventListener("click", (e) => this.handleLinkClick(e));
     this._trace("Started");
@@ -40,6 +46,12 @@ class Turbopages {
     this._trace("Loading page", url);
     // Download HTML from url
     fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to load page");
+        }
+        return response;
+      })
       .then((response) => response.text())
       .then((html) => {
         // Parse HTML
@@ -54,6 +66,12 @@ class Turbopages {
         document.body.innerHTML = body || "";
         // Update URL
         window.history.pushState({}, title || "", url);
+      })
+      .catch((err) => {
+        this._traceError(err);
+
+        // Redirect to URL
+        window.location.href = url;
       });
   }
 }
