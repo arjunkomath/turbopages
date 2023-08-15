@@ -1,0 +1,26 @@
+{
+  "name": "turbopages",
+  "version": "0.0.1",
+  "description": "A fast client side router",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arjunkomath/turbopages.git"
+  },
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build && npx tsc --emitDeclarationOnly",
+    "serve": "serve ./demo"
+  },
+  "keywords": ["turbo", "fast", "client", "router"],
+  "author": "Arjun Komath<arjunkomath@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^3.0.1",
+    "serve": "^14.2.0",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.9"
+  }
+}
