@@ -1,6 +1,6 @@
 {
   "name": "turbopages",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A fast client side router",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,7 +14,12 @@
     "build": "vite build && npx tsc --emitDeclarationOnly",
     "serve": "serve ./demo"
   },
-  "keywords": ["turbo", "fast", "client", "router"],
+  "keywords": [
+    "turbo",
+    "fast",
+    "client",
+    "router"
+  ],
   "author": "Arjun Komath<arjunkomath@gmail.com>",
   "license": "MIT",
   "devDependencies": {
